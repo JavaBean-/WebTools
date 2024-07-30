@@ -1,4 +1,4 @@
-[![jdkversions](https://img.shields.io/badge/Java-1.7%2B-yellow.svg)]()
+[![jdkversions](https://img.shields.io/badge/Java-1.8%2B-yellow.svg)]()
 [![vueversions](https://img.shields.io/badge/vue.js-2.2.x-brightgreen.svg)]()
 [![es2015](https://img.shields.io/badge/ECMAScript-6-green.svg)]()
 [![ver](https://img.shields.io/badge/release-v0.1-red.svg)]()
@@ -6,17 +6,16 @@
 
 
 <p align="center">
-  <a href ="##"><img alt="spring_vue" src="https://github.com/boylegu/SpringBoot-vue/blob/master/images/newlogo.jpg?raw=true"></a></p>
+ </p>
 
 <h4 align="center" style="color:	#3399FF">
 Convenient & efficient and better performance for Java microservice full stack.
 </h4>
 
-<p align="center" style="color: #FF66FF">Commemorate the 6 anniversary of enter the profession.</p>
+<p align="center" style="color: #FF66FF">Here is a spring-boot & vue project.</p>
 
-<p align="center" style="color: #FF9933">Give beginner as a present.</p>
+<p align="center" style="color: #FF9933">It originated from another Git project.   <a href="https://github.com/boylegu/SpringBoot-vue">original project</a></p>
 
-<p align="right" style="color: #3399FF">———————By Boyle Gu</p>
 
 ### [Chinese README[中文]](https://github.com/boylegu/SpringBoot-vue/blob/master/README-CN.md)
 
