@@ -50,6 +50,14 @@
                     <el-button @click="editItem(scope.$index, tableData)" type="text" size="large">Edit</el-button>
                 </template>
             </el-table-column>
+            <el-table-column
+                    fixed="right"
+                    label="Operation"
+                    width="100">
+                <template scope="scope">
+                    <el-button @click="deleteItem(scope.$index, tableData)" type="text" size="large">Delete</el-button>
+                </template>
+            </el-table-column>
         </el-table>
         <el-pagination class="pagination" layout="prev, pager, next" :total="total" :page-size="pageSize"
                        v-on:current-change="changePage">
@@ -124,6 +132,17 @@
                 const idurl = 'http://127.0.0.1:8000/api/persons/detail/' + itemId;
                 this.$axios.get(idurl).then((response) => {
                     this.form = response.data;
+                }).catch(function (response) {
+                    console.log(response)
+                });
+            },
+
+            deleteItem: function (index, rows) {
+                this.dialogFormVisible = false;
+                const itemId = rows[index].id;
+                const idurl = 'http://127.0.0.1:8000/api/persons/delete/' + itemId;
+                this.$axios.delete(idurl).then((response) => {  
+                    this.getCustomers();                
                 }).catch(function (response) {
                     console.log(response)
                 });
