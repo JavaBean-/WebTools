@@ -1,4 +1,4 @@
-[![jdkversions](https://img.shields.io/badge/Java-1.7%2B-yellow.svg)]()
+[![jdkversions](https://img.shields.io/badge/Java-1.8%2B-yellow.svg)]()
 [![vueversions](https://img.shields.io/badge/vue.js-2.2.x-brightgreen.svg)]()
 [![es2015](https://img.shields.io/badge/ECMAScript-6-green.svg)]()
 [![ver](https://img.shields.io/badge/release-v0.1-red.svg)]()
