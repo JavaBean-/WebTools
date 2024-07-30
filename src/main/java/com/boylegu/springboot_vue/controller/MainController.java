@@ -141,7 +141,7 @@ public class MainController {
         *    @apiSuccess {String} zone
         */
 
-        Persons user = personsRepository.findById(id);
+        Persons user = personsRepository.findById(id).get();
 
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
@@ -167,7 +167,7 @@ public class MainController {
          *  @apiSuccess {String} zone
 
         */
-        Persons user = personsRepository.findById(id);
+        Persons user = personsRepository.findById(id).get();
 
         user.setPhone(data.getPhone());
 

@@ -1,6 +1,5 @@
 package com.boylegu.springboot_vue.config;
 
-import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -13,6 +12,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
+import java.util.logging.Logger;
 
 /**
 /**
@@ -25,7 +25,7 @@ import java.util.Arrays;
 @Component
 public class WebLogAspect {
 
-    private Logger logger = Logger.getLogger(getClass());
+    private Logger logger = Logger.getLogger(getClass().getName());
 
     ThreadLocal<Long> startTime = new ThreadLocal<>();
 
