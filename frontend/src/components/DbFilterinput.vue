@@ -1,6 +1,5 @@
 <template>
-    <el-form :inline="true" :model="formInline">
-
+    <el-form :inline="true" class="form-inline-container" :model="formInline">
         <el-form-item label="Sex">
             <el-select v-model="formInline.sex" clearable placeholder="select sex"
                        v-on:visible-change="selectDemo">
@@ -13,14 +12,10 @@
             </el-select>
         </el-form-item>
 
-        <el-form-item v-if='formInline.sex' label="Description">
-            <el-input v-model="formInline.email" placeholder="Please input suffix of email"></el-input>
-        </el-form-item>
-
-        <el-form-item v-else='formInline.sex' label="Description">
-            <el-input v-model="formInline.email" disabled placeholder="Please input suffix of email"></el-input>
-        </el-form-item>
-
+    <el-form-item label="Description">
+        <el-input v-model="formInline.email" :disabled="!formInline.sex" placeholder="Please input suffix of email"></el-input>
+    </el-form-item>
+      <el-button fixed="right" class="button-container" type="primary" @click="addData()">Add Data</el-button>
     </el-form>
 </template>
 
@@ -78,8 +73,26 @@
                 },
                 500
             ),
+
+            addData: function(){                        
+                alert("sdsfsdf");
+            }
         }
     }
 
 
 </script>
+
+<style scoped>
+
+.button-container {
+  margin-left: auto; /* This pushes the button to the right */
+}
+.form-inline-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%; /* Make the form occupy 100% width */
+  justify-content: space-between;
+  align-items: center;
+}
+</style>

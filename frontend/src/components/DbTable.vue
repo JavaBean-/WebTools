@@ -44,7 +44,7 @@
             </el-table-column>
             <el-table-column
                     fixed="right"
-                    label="Operation"
+                    label="Action"
                     width="100">
                 <template scope="scope">
                     <el-button @click="editItem(scope.$index, tableData)" type="text" size="large">Edit</el-button>
@@ -52,7 +52,7 @@
             </el-table-column>
             <el-table-column
                     fixed="right"
-                    label="Operation"
+                    label="Action"
                     width="100">
                 <template scope="scope">
                     <el-button @click="deleteItem(scope.$index, tableData)" type="text" size="large">Delete</el-button>
