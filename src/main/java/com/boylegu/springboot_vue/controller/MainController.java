@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,15 +41,10 @@ public class MainController {
     public ResponseEntity<?> getSexAll() {
 
         ArrayList<Map<String, String>> results = new ArrayList<>();
-
         for (Object value : personsRepository.findSex()) {
-
             Map<String, String> sex = new HashMap<>();
-
             sex.put("label", value.toString());
-
             sex.put("value", value.toString());
-
             results.add(sex);
         }
 
@@ -62,35 +59,25 @@ public class MainController {
             @RequestParam(value = "page", required = false) Integer pages, @RequestParam("sex") String sex, @RequestParam("email") String email) {
 
         if (pages == null) {
-
             pages = 1;
-
         }
-
         Sort sort = new Sort(Direction.ASC, "id");
-
         Pageable pageable = new PageRequest(pages - 1, maxPerPage, sort);
-
         PaginationFormatting paginInstance = new PaginationFormatting();
-
         return paginInstance.filterQuery(sex, email, pageable);
     }
 
     @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Persons> getUserDetail(@PathVariable Long id) {
-
         Persons user = personsRepository.findById(id).get();
-
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/detail/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Persons updateUser(@PathVariable Long id, @RequestBody Persons data) {
-
         Persons user = personsRepository.findById(id).get();
         user.setPhone(data.getPhone());
         user.setZone(data.getZone());
-
         return personsRepository.save(user);
     }
 
@@ -102,9 +89,9 @@ public class MainController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Persons saveUser(@RequestBody Persons data) {
-
         Persons user = personsRepository.findById(data.getId()).orElse(data);
-
+        data.setCreateDatetime(LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         return personsRepository.save(user);
     }
 
