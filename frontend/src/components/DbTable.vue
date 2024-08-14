@@ -71,7 +71,7 @@
     import Bus from '../eventBus'
     import DbModal from './DbModal.vue'
 
-    export default {
+    export default {            
         data(){
             return {
                 tableData: [],
@@ -82,7 +82,14 @@
                 sex: '',
                 email: '',
                 dialogFormVisible: false,
-                form: '',
+                form: {
+                        id: "",
+                        username: "",
+                        email: "",
+                        phone: "",
+                        sex: "",
+                        zone: ""
+                    },
             }
         },
         components: {
@@ -98,11 +105,27 @@
                 this.sex = data.sex;
 
             });
+
+            Bus.$on('callOtherMethod', this.dialogEnVisible);
         },
 
         methods: {
 
+            dialogEnVisible: function () {                
+                this.form.id = null;
+                this.dialogFormVisible = true;              
+            },
+
             dialogVisible: function () {
+                this.form = {
+                        id: "",
+                        username: "",
+                        email: "",
+                        phone: "",
+                        sex: "",
+                        zone: ""
+                    };
+
                 this.dialogFormVisible = false;
             },
 

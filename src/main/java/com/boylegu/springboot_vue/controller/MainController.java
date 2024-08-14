@@ -59,10 +59,7 @@ public class MainController {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Map<String, PaginationMultiTypeValuesHelper> getPersonsAll(
-            @RequestParam(value = "page", required = false) Integer pages,
-            @RequestParam("sex") String sex,
-            @RequestParam("email") String email
-    ) {
+            @RequestParam(value = "page", required = false) Integer pages, @RequestParam("sex") String sex, @RequestParam("email") String email) {
 
         if (pages == null) {
 

@@ -25,7 +25,7 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
             <el-button :plain="true" type="danger" v-on:click="canclemodal">Cancel</el-button>
-            <el-button :plain="true" @click="updateForm(form)">Save</el-button>
+            <el-button :plain="true" @click="saveForm(form)">Save</el-button>
         </div>
     </el-dialog>
 </template>
@@ -41,6 +41,14 @@
         props: ['dialogFormVisible', 'form'],
 
         methods: {
+            saveForm: function (formName) {
+                if (formName.id) {
+                        this.updateForm(formName);
+                    } else {
+                        this.insertForm(formName);
+                }
+            },
+
             updateForm: function (formName) {
                 let itemId = formName.id;
                 let phone = formName.phone;
@@ -59,6 +67,30 @@
                     });
                 location.reload();
             },
+
+            insertForm: function (formName) {
+                let username = formName.username;
+                let email = formName.email;
+                let phone = formName.phone;
+                let sex = formName.sex;
+                let zone = formName.zone;
+                this.$axios.post('http://127.0.0.1:8000/api/persons/', {
+                    username: username,
+                    email: email,
+                    phone: phone,
+                    sex: sex,
+                    zone: zone  
+            })
+            .then((response) => {
+                console.log(response);
+                this.form = response.data;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+            location.reload();
+            },
+
             canclemodal: function () {
                 this.$emit('canclemodal');
             }

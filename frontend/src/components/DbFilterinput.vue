@@ -74,8 +74,8 @@
                 500
             ),
 
-            addData: function(){                        
-                alert("sdsfsdf");
+            addData: function(){                                      
+                Bus.$emit('callOtherMethod');
             }
         }
     }
