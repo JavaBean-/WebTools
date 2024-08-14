@@ -5,18 +5,18 @@
                 <el-input :disabled="true" v-model="form.id" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item label="username" :label-width="formLabelWidth">
-                <el-input :disabled="true" v-model="form.username" auto-complete="off"></el-input>
+                <el-input :disabled="false" v-model="form.username" auto-complete="off"></el-input>
             </el-form-item>
 
             <el-form-item label="email" :label-width="formLabelWidth">
-                <el-input :disabled="true" v-model="form.email" auto-complete="off"></el-input>
+                <el-input :disabled="false" v-model="form.email" auto-complete="off"></el-input>
             </el-form-item>
 
             <el-form-item label="phone" :label-width="formLabelWidth">
                 <el-input v-model="form.phone" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item label="sex" :label-width="formLabelWidth">
-                <el-input :disabled="true" v-model="form.sex" auto-complete="off"></el-input>
+                <el-input :disabled="false" v-model="form.sex" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item label="zone" :label-width="formLabelWidth">
                 <el-input v-model="form.zone" auto-complete="off"></el-input>
