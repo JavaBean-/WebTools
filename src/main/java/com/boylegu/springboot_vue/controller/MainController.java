@@ -90,7 +90,7 @@ public class MainController {
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Persons saveUser(@RequestBody Persons data) {
         Persons user = personsRepository.findById(data.getId()).orElse(data);
-        data.setCreateDatetime(LocalDateTime.now()
+        data.setCreate_datetime(LocalDateTime.now()
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         return personsRepository.save(user);
     }

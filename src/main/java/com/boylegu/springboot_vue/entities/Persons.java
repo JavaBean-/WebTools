@@ -18,7 +18,7 @@ public class Persons implements Serializable {
     private long id;
 
     @Column(name = "create_datetime")
-    private String createDatetime;
+    private String create_datetime;
 
     @Column(name = "username")
     private String username;
@@ -43,13 +43,13 @@ public class Persons implements Serializable {
         this.id = id;
     }
 
-    public String getCreateDatetime() {
-        return createDatetime;
+    public String getCreate_datetime() {
+        return create_datetime;
 
     }
 
-    public void setCreateDatetime(String createDatetime) {
-        this.createDatetime = createDatetime;
+    public void setCreate_datetime(String create_datetime) {
+        this.create_datetime = create_datetime;
     }
 
     public String getUsername() {
